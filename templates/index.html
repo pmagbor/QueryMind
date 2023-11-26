@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QueryMind</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+    	background-color: #cad2c5;
+    	/* color: #000000; */
+    	font-family: Arial, sans-serif;
+    	margin: 5%;
+    	padding: 5%;
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	justify-content: center;
+    	height: 100vh;
+        }
+
+        #header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #logo {
+            /* Add styles for your logo here */
+            width: 150px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        #fileInput {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #questionArea {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #questionInput {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #askButton {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #84a98c; 
+            color: #ffffff; /* Button text color */
+            border: none;
+            cursor: pointer;
+        }
+
+        #chatContainer {
+            width: 80%;
+            max-width: 600px; 
+	        max-height: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .message {
+            max-width: 70%; /* Adjust this percentage as needed */
+            word-wrap: break-word;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f3f3f3; /* background color for messages */
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        #chatForm {
+            width: 70%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        #filePath, #question {
+            width: 70%; /* Adjust the width as needed */
+            padding: 12px; /* Adjust the padding for better appearance */
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 15px 20px; /* Increase padding to make the button bigger */
+            font-size: 18px; /* Increase font size if needed */
+            background-color: #84a98c;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="header">
+        <h1>QueryMind</h1>
+    </div>
+
+    <div id="logo">
+        <img src="{{ url_for('static', filename='brain.png') }}" alt="Logo" width="150" height="150" />
+    </div>    
+
+    
+    <form id="chatForm">
+        <label for="filePath">File Path:</label>
+        <input type="text" id="filePath" placeholder="Enter file path..."><br><br>
+        
+        <label for="question">Question:</label>
+        <input type="text" id="question" placeholder="Ask a question..."><br><br>
+        
+        <input type="submit" value="Ask">
+    </form>
+    
+    <div id="chatResults"></div>
+    
+    <script>
+        $('#chatForm').submit(function(event) {
+            event.preventDefault();
+            var filePath = $('#filePath').val();
+            var question = $('#question').val();
+            
+            $.ajax({
+                type: 'POST',
+                url: '/ask_openai',
+                data: { filePath: filePath, question: question },
+                success: function(response) {
+                    // Display user question
+                    appendMessage("You", question);
+    
+                    // Display AI response
+                    appendMessage("AI", response);
+    
+                    // Clear the input field
+                    $('#question').val("");
+                },
+                error: function() {
+                    appendMessage("AI", "Sorry, an error occurred while processing your request.");
+                }
+            });
+        });
+    
+        function appendMessage(user, message) {
+            const chatResults = $('#chatResults');
+            const messageElement = $('<p class="message"></p>').html(`<strong>${user}:</strong> ${message}`);
+            chatResults.append(messageElement);
+
+            // Scroll to the bottom to show the latest message
+            chatResults.scrollTop(chatResults[0].scrollHeight);
+        }
+    </script>
+</body>
+</html>
