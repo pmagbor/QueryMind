@@ -1,8 +1,10 @@
-## QueryMind 🤖🧠
+## QueryMind 
 By: Orayda Shagifa, Kenda Najjar, Paula Magbor and Taleen Alkadah
 
 ## Inspiration 🤔
 As students, we've often faced challenges with understanding course content and trying to seek out resources like additional practice questions without breaking the bank. This personal struggle inspired us to create QueryMind, a web application that helps enhance student's comprehension. 
+
+<img src="https://media.tenor.com/zXUyAF5778kAAAAC/panda-angry.gif" alt="Alt text" style="display:inline; margin-right:10px;" /> 
 
 ## What it does ⚙️
 QueryMind allows users to provide personal learning materials (i.e. notes) that they would like to review. Then, the user can input their inquiries about the material, ask for a summary of the content or request practice questions to help consolidate their learning. By tailoring this information to user-specified material, this approach can help students supplement their learning and streamline their revision of concepts relevant to their course material within in larger subject area. 
@@ -20,10 +22,11 @@ We are proud of our teamwork and the new skills we learned to actualize this ide
 ## What we learned 💡
 Through this project, we learned how to use OpenAI and Flask. We also got some insight into the process of connecting frontend and backend and exposure to other approaches we are keen to implement for future hackathons and personal projects, such as using Django and React. 
 
+
 ## What's next for QueryMind? ➡️
 The main features we would like to integrate into QueryMind are:
 * Increasing the tool's capacity to take larger files (for instance, splitting the file into smaller chunks
 * Supporting a broader range of file types
-* Enhancing UI and UX elements of the web application to make it more accessible
+* Enhancing UI and UX elements of the web application to make it more accessible (i.e. auditory functionality, dark mode, click and drag upload)
 
-![Image 1](static/brain.png)
+<img src="static/brain.png" alt="Image 1" width="100">
