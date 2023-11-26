@@ -24,3 +24,5 @@ The main features we would like to integrate into QueryMind are:
 * Increasing the tool's capacity to take larger files (for instance, splitting the file into smaller chunks
 * Supporting a broader range of file types
 * Enhancing UI and UX elements of the web application to make it more accessible
+
+![Image 1](static/brain.png)
