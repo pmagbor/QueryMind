@@ -6,6 +6,7 @@ As students, we've often faced challenges with understanding course content and 
 
 ## What it does ⚙️
 QueryMind allows users to provide personal learning materials (i.e. notes) that they would like to review. Then, the user can input their inquiries about the material, ask for a summary of the content or request practice questions to help consolidate their learning. By tailoring this information to user-specified material, this approach can help students supplement their learning and streamline their revision of concepts relevant to their course material within in larger subject area. 
+[Click here for the demo video!](https://drive.google.com/file/d/1236j0btYxA7TZPHg3v2wwyYG8gO8MxLE/view?usp=sharing)
 
 ## How we built it 🐱‍💻
 We made the front end with HTML and the back end with Python, making use of OpenAI for the chat functionality. To merge the two, we used Flask. Lastly, we generated the logo using generative AI.
