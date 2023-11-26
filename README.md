@@ -1,5 +1,5 @@
 ## QueryMind 🤖🧠
-By: Orayda, Kenda, Paula and Taleen
+By: Orayda Shagifa, Kenda Najjar, Paula Magbor and Taleen Alkadah
 
 ## Inspiration 🤔
 As students, we've often faced challenges with understanding course content and trying to seek out resources like additional practice questions without breaking the bank. This personal struggle inspired us to create QueryMind, a web application that helps enhance student's comprehension. 
